@@ -3,7 +3,7 @@
 function accuracy=TestModel(network,filepath)
    net=network;
    FilePath=filepath;
-   valImages = imageDatastore('FilePath',...
+   valImages = imageDatastore(FilePath,...
     'IncludeSubfolders',true,'FileExtensions','.jpg','LabelSource','foldernames')   
    valImages.ReadFcn =  @(filename)readAndPreprocessImageForGoogle(filename);
    predictedLabels = classify(net,valImages);

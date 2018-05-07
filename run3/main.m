@@ -6,7 +6,8 @@
 %This transfer learning process may take up to 10 mins,depending on your
 %GPU and chosen parameters
 %% This requires test data with labels.
-path = fullfile('G:','put your folder contain test set with label here');
+path = fullfile('G:','ComputerVisionCoursework3');
+path2 = fullfile('G:','ComputerVisionCoursework3','testing');
 data_path = '../training/';
 %% if you want test model recover sentence below
 %images = imageDatastore(data_path,...
@@ -16,11 +17,11 @@ data_path = '../training/';
 if flag1==2
    load('GoogLeNetNew.mat');
    tranNet2 = net;
-   FilePrediction;
+  % FilePrediction;
    %if no memory
    %CreateTxtLowMemory;
    %% if you want test model recover sentence below
-  % accuracy1=TestModel(tranNet1,path) 
+   %accuracy1=TestModel(tranNet2,path2) 
 else
    tranNet1 = TransferLearningGoogLeNet
 end  
@@ -32,7 +33,7 @@ if flag1==2
    load('AlexNetNew.mat');
    tranNet2 = netTransfer;
    %% if you want test model recover sentence below
-  % accuracy2=TestModel(tranNet2,path) 
+   accuracy2=TestModel(tranNet2,path) 
 else
    tranNet2 = TransferLearningAlexNet
 end  
